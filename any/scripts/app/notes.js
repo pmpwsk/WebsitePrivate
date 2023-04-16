@@ -32,22 +32,39 @@ async function CreateNote() {
     }
 }
 
+function TextChanged() {
+    let save = document.querySelector("#save");
+    save.innerText = "Save";
+    save.className = "green";
+}
+
 async function Save() {
+    let save = document.querySelector("#save");
+    save.innerText = "Saving...";
+    save.className = "green";
     let textElement = document.querySelector("#text");
     let text = textElement.innerText;
     if (text === "") {
         text = "null";
     }
-    let response = await fetch("/api/app/notes/save?id=" + id + "&text=" + encodeURIComponent(text));
-    if (response.status === 200) {
-        let text = await response.text();
-        if (text.startsWith("/app/notes")) {
-            window.location.assign(text);
+    try {
+        let response = await fetch("/api/app/notes/save?id=" + id + "&text=" + encodeURIComponent(text));
+        if (response.status === 200) {
+            let text = await response.text();
+            if (text.startsWith("/app/notes")) {
+                save.innerText = "Saved!";
+                save.className = "";
+            } else {
+                save.innerText = "Error!";
+                save.className = "red";
+            }
         } else {
-            ShowError("Connection failed.");
+            save.innerText = "Error!";
+            save.className = "red";
         }
-    } else {
-        ShowError("Connection failed.");
+    } catch {
+        save.innerText = "Error!";
+        save.className = "red";
     }
 }
 
