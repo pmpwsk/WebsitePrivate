@@ -39,11 +39,13 @@ function TextChanged() {
 }
 
 async function Save() {
+    let back = document.querySelector("#back");
+    back.innerText = "Back";
     let save = document.querySelector("#save");
     save.innerText = "Saving...";
     save.className = "green";
     let textElement = document.querySelector("#text");
-    let text = textElement.innerText;
+    let text = textElement.value;
     if (text === "") {
         text = "null";
     }
@@ -65,6 +67,16 @@ async function Save() {
     } catch {
         save.innerText = "Error!";
         save.className = "red";
+    }
+}
+
+async function Back(parentLink) {
+    let back = document.querySelector("#back");
+    let save = document.querySelector("#save");
+    if (save.innerText === "Save" && back.innerText == "Back") {
+        back.innerText = "Discard?";
+    } else {
+        window.location.assign(parentLink);
     }
 }
 
