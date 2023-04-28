@@ -5,7 +5,7 @@ let page = document.body.children[1];
 window.onresize = Resize;
 ta.onclick = Refocus;
 Resize();
-
+Load();
 
 function Resize() {
     let pageComp = window.getComputedStyle(page);
@@ -22,4 +22,25 @@ function Refocus() {
         ta.focus();
     }
     ch = nh;
+}
+
+async function Load() {
+    let response = await fetch("/api/app/notes/get?id=" + GetId());
+    switch (response.status) {
+        case 200:
+            ta.value = await response.text();
+            ta.placeholder = "Enter something...";
+            break;
+        case 201:
+            ta.value = "";
+            ta.placeholder = "Enter something...";
+            ta.focus();
+            break;
+        default:
+            ta.value = "";
+            ta.placeholder = "Error loading this note's content! Try reloading the page.";
+            let save = document.querySelector("#save");
+            save.innerText = "Error!";
+            save.className = "red";
+    }
 }
