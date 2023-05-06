@@ -2,6 +2,7 @@ let username = document.querySelector("#username");
 let email = document.querySelector("#email");
 let password1 = document.querySelector("#password1");
 let password2 = document.querySelector("#password2");
+let continueButton = document.querySelector("#continueButton").firstElementChild;
 
 async function Continue() {
     if (username.value === "") {
@@ -15,6 +16,7 @@ async function Continue() {
     } else if (password1.value != password2.value) {
         ShowError("The passwords do not match.");
     } else {
+        continueButton.innerText = "Loading...";
         let response = await fetch("/api/account/register?username=" + encodeURIComponent(username.value) + "&email=" + encodeURIComponent(email.value) + "&password=" + encodeURIComponent(password1.value));
         if (response.status === 200) {
             let text = await response.text();
@@ -30,5 +32,6 @@ async function Continue() {
         } else {
             ShowError("Connection failed.");
         }
+        continueButton.innerText = "Continue";
     }
 }
