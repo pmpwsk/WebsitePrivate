@@ -52,6 +52,14 @@ function TextChanged() {
     save.className = "green";
 }
 
+function Navigate(sibling) {
+    if (save.innerText === "Save") {
+        save.className = "red";
+    } else {
+        window.location.assign("/app/notes?id=" + sibling);
+    }
+}
+
 async function Save() {
     back.innerText = "Back";
     save.innerText = "Saving...";
