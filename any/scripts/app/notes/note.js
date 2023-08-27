@@ -3,7 +3,7 @@ let ta = document.querySelector('#text');
 let editor = document.querySelector('#editor');
 let save = document.querySelector('#save');
 let back = document.querySelector('#back');
-let page = document.querySelector('.page');
+let page = document.querySelector('.content');
 window.onresize = Resize;
 ta.onclick = Refocus;
 Resize();
