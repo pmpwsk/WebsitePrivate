@@ -51,11 +51,11 @@ async function Delete() {
     }
 }
 
-function Navigate(sibling) {
+function Navigate(siblingLink) {
     let saveB = document.querySelector('#save');
     if (saveB !== null && saveB.innerText === "Save") {
         saveB.className = "red";
     } else {
-        window.location.assign("/app/notes?id=" + sibling);
+        window.location.assign(siblingLink);
     }
 }
