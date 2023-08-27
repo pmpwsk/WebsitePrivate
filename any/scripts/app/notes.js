@@ -50,3 +50,11 @@ async function Delete() {
         deleteElement.textContent = "Really?";
     }
 }
+
+function Navigate(sibling) {
+    if (save.innerText === "Save") {
+        save.className = "red";
+    } else {
+        window.location.assign("/app/notes?id=" + sibling);
+    }
+}
