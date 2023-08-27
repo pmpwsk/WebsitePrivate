@@ -16,7 +16,6 @@ function Resize() {
     let newHeight = Math.floor(window.visualViewport.height - parseFloat(editorComp['marginTop']) - parseFloat(fullComp['paddingTop']) - parseFloat(fullComp['paddingBottom']));
     editor.style.flex = '1';
     editor.style.height = newHeight + 'px';
-    //sidebar.style.height = newHeight + 'px';
     Refocus();
 }
 
