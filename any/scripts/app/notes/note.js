@@ -2,21 +2,21 @@ let ch = 0;
 let ta = document.querySelector('#text');
 let editor = document.querySelector('#editor');
 let sidebar = document.querySelector('.sidebar');
+let full = document.querySelector('.full');
 let save = document.querySelector('#save');
 let back = document.querySelector('#back');
-let page = document.querySelector('.content');
 window.onresize = Resize;
 ta.onclick = Refocus;
 Resize();
 Load();
 
 function Resize() {
-    let pageComp = window.getComputedStyle(page);
+    let fullComp = window.getComputedStyle(full);
     let editorComp = window.getComputedStyle(editor);
-    let newHeight = Math.floor(window.visualViewport.height - parseFloat(editorComp['marginTop']) - parseFloat(pageComp['paddingTop']) - parseFloat(pageComp['paddingBottom']));
+    let newHeight = Math.floor(window.visualViewport.height - parseFloat(editorComp['marginTop']) - parseFloat(fullComp['paddingTop']) - parseFloat(fullComp['paddingBottom']));
     editor.style.flex = '1';
     editor.style.height = newHeight + 'px';
-    sidebar.style.height = newHeight + 6.4 + 'px';
+    //sidebar.style.height = newHeight + 'px';
     Refocus();
 }
 
