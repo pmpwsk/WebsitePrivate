@@ -52,8 +52,9 @@ async function Delete() {
 }
 
 function Navigate(sibling) {
-    if (save != undefined && save.innerText === "Save") {
-        save.className = "red";
+    let saveB = document.querySelector('#save');
+    if (saveB !== null && saveB.innerText === "Save") {
+        saveB.className = "red";
     } else {
         window.location.assign("/app/notes?id=" + sibling);
     }
