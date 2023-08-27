@@ -52,7 +52,7 @@ async function Delete() {
 }
 
 function Navigate(sibling) {
-    if (save.innerText === "Save") {
+    if (save != undefined && save.innerText === "Save") {
         save.className = "red";
     } else {
         window.location.assign("/app/notes?id=" + sibling);
