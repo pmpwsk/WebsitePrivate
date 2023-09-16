@@ -2,8 +2,11 @@
 
 << WebFramework >> /projects/webframework
 << Wrapper >> /projects/wrapper
+<< UsersPlugin >> /projects/users-plugin
 << ServerPlugin >> /projects/server-plugin
 << NotesPlugin >> /projects/notes-plugin
 << RedirectPlugin >> /projects/redirect-plugin
 << TCP library >> /projects/tcp
+<< ReleaseCollector >> /projects/release-collector
+<< PluginFilePacker >> /projects/plugin-file-packer
 >> sidebar highlight
