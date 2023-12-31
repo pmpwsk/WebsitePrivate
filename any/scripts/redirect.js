@@ -1,1 +1,0 @@
-alert("Wrong redirect.js!");
