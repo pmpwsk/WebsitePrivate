@@ -2,6 +2,7 @@
 
 << WebFramework >> /projects/webframework
 << Wrapper >> /projects/wrapper
+<< pwgen >> /projects/pwgen
 << UsersPlugin >> /projects/users-plugin
 << ServerPlugin >> /projects/server-plugin
 << NotesPlugin >> /projects/notes-plugin
